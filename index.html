@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Riotwood | Laser-engraved wood &amp; metal gifts</title>
+<meta name="description" content="Riotwood makes personalized laser-engraved wood and metal gifts: ornaments, pet tags, keychains, coasters and wallet cards, engraved to order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --char: #141110;
+    --char-2: #1d1916;
+    --char-3: #2a241f;
+    --ash: #8f857b;
+    --cream: #f3ebe0;
+    --wood: #c8935a;
+    --ember: #ff5a1f;
+    --ember-soft: rgba(255, 90, 31, 0.14);
+    --steel: #b9c2c9;
+    --line: rgba(243, 235, 224, 0.12);
+    --radius: 14px;
+    --max: 1120px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--char);
+    color: var(--cream);
+    font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img, svg { display: block; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--wood); font-weight: 600; margin: 0 0 14px;
+  }
+  h1, h2, h3 { font-stretch: 112%; line-height: 1.05; margin: 0; }
+  h2 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; letter-spacing: -0.01em; }
+  h3 { font-size: 21px; font-weight: 700; }
+  .serif { font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 400; font-stretch: normal; }
+  .lede { color: #cfc5b8; max-width: 620px; font-size: 19px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(20, 17, 16, 0.86);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 900; font-stretch: 125%; letter-spacing: 0.04em; font-size: 19px; }
+  .logo svg { width: 26px; height: 26px; }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { text-decoration: none; font-size: 15px; color: #d9cfc2; }
+  .nav-links a:hover { color: var(--cream); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 13px 22px; border-radius: 999px; border: 0; cursor: pointer;
+    font: inherit; font-weight: 700; font-size: 15px; text-decoration: none;
+    transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .btn-ember { background: var(--ember); color: #1a0d07; }
+  .btn-ember:hover { transform: translateY(-1px); box-shadow: 0 8px 28px rgba(255, 90, 31, 0.35); }
+  .btn-ghost { background: transparent; color: var(--cream); box-shadow: inset 0 0 0 1.5px rgba(243, 235, 224, 0.35); }
+  .btn-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--cream); }
+  .nav-links .btn { padding: 9px 18px; color: #1a0d07; }
+  @media (max-width: 760px) { .nav-links a:not(.btn) { display: none; } }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; padding: 96px 0 88px; border-bottom: 1px solid var(--line); }
+  .hero .grain { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.55; pointer-events: none; }
+  .hero .wrap { position: relative; }
+  .hero h1 {
+    font-size: clamp(48px, 15vw, 188px); font-weight: 900; font-stretch: 125%;
+    letter-spacing: -0.02em; line-height: 0.86; margin: 6px 0 26px;
+  }
+  .hero h1 .burn {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ember);
+    text-shadow: 0 0 40px rgba(255, 90, 31, 0.35);
+  }
+  .hero .tag { font-size: clamp(24px, 3.2vw, 34px); margin: 0 0 18px; color: var(--cream); }
+  .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+  .notice {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ember-soft); color: #ffb08f; border: 1px solid rgba(255, 90, 31, 0.35);
+    border-radius: 999px; padding: 7px 14px; font-size: 14px; font-weight: 600;
+  }
+  .notice .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ember); box-shadow: 0 0 12px var(--ember); }
+
+  section { padding: 96px 0; }
+  .section-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; margin-bottom: 44px; }
+
+  /* Two materials */
+  .materials { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .mat { border-radius: var(--radius); padding: 34px; position: relative; overflow: hidden; min-height: 280px; }
+  .mat-wood { background: linear-gradient(160deg, #3a2a1c, #23190f); }
+  .mat-metal { background: linear-gradient(160deg, #2c3136, #181b1e); }
+  .mat .label { font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; }
+  .mat-wood .label { color: var(--wood); }
+  .mat-metal .label { color: var(--steel); }
+  .mat h3 { font-size: 30px; margin: 10px 0 12px; }
+  .mat p { color: #d4cabe; margin: 0 0 8px; max-width: 420px; }
+  .mat ul { margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+  .mat li { font-size: 14px; padding: 5px 12px; border-radius: 999px; background: rgba(255, 255, 255, 0.07); }
+  .mat svg.bg { position: absolute; right: -24px; bottom: -24px; width: 170px; height: 170px; opacity: 0.12; }
+  @media (max-width: 820px) { .materials { grid-template-columns: 1fr; } }
+
+  /* Products */
+  .products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .card {
+    background: var(--char-2); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 26px; display: flex; flex-direction: column; gap: 14px;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .card:hover { border-color: rgba(255, 90, 31, 0.5); transform: translateY(-3px); }
+  .card .art { height: 150px; border-radius: 10px; background: var(--char-3); display: grid; place-items: center; }
+  .card .art svg { width: 110px; height: 110px; }
+  .card .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .card .price { color: var(--ember); font-weight: 700; white-space: nowrap; font-size: 15px; }
+  .card p { margin: 0; color: #bfb4a7; font-size: 15px; }
+  .pill { align-self: flex-start; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+  .pill-wood { color: var(--wood); background: rgba(200, 147, 90, 0.13); }
+  .pill-metal { color: var(--steel); background: rgba(185, 194, 201, 0.12); }
+  .card-cta { background: var(--ember-soft); border-color: rgba(255, 90, 31, 0.35); justify-content: center; }
+  .card-cta h3 { font-size: 26px; }
+  @media (max-width: 960px) { .products { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 620px) { .products { grid-template-columns: 1fr; } }
+
+  /* Steps */
+  .steps-sec { background: var(--char-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; counter-reset: s; }
+  .step { border-top: 2px solid var(--ember); padding-top: 22px; }
+  .step .n { font-weight: 900; font-stretch: 125%; font-size: 15px; color: var(--ember); letter-spacing: 0.1em; }
+  .step h3 { margin: 8px 0 10px; }
+  .step p { margin: 0; color: #bfb4a7; }
+  @media (max-width: 820px) { .steps { grid-template-columns: 1fr; } }
+
+  /* Order form */
+  .order { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start; }
+  form { background: var(--char-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; display: grid; gap: 16px; }
+  label { display: grid; gap: 6px; font-size: 14px; font-weight: 600; color: #d9cfc2; }
+  input, select, textarea {
+    font: inherit; font-size: 16px; color: var(--cream);
+    background: var(--char); border: 1px solid rgba(243, 235, 224, 0.18); border-radius: 10px;
+    padding: 12px 14px; width: 100%;
+  }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--ember); outline-offset: 1px; border-color: transparent; }
+  textarea { min-height: 110px; resize: vertical; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-note { font-size: 14px; color: var(--ash); margin: 0; }
+  .form-msg { display: none; padding: 14px 16px; border-radius: 10px; background: var(--ember-soft); color: #ffcdb8; font-size: 15px; }
+  .form-msg.show { display: block; }
+  .checklist { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; }
+  .checklist li { display: flex; gap: 12px; color: #d4cabe; }
+  .checklist svg { flex: none; width: 22px; height: 22px; margin-top: 2px; }
+  @media (max-width: 860px) { .order { grid-template-columns: 1fr; } .row { grid-template-columns: 1fr; } }
+
+  /* FAQ */
+  .faq { max-width: 820px; }
+  details { border-bottom: 1px solid var(--line); padding: 20px 0; }
+  summary { cursor: pointer; font-weight: 700; font-size: 19px; list-style: none; display: flex; justify-content: space-between; gap: 20px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--ember); font-weight: 400; font-size: 26px; line-height: 1; }
+  details[open] summary::after { content: "\2212"; }
+  details p { color: #bfb4a7; margin: 12px 0 0; }
+
+  /* Markets band */
+  .band { background: linear-gradient(120deg, #2a160c, #1a110c 55%, #141110); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .band .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+  .band p { color: #d4cabe; }
+  @media (max-width: 820px) { .band .wrap { grid-template-columns: 1fr; } }
+
+  footer { padding: 56px 0 40px; color: var(--ash); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+  footer .logo { color: var(--cream); }
+  footer nav { all: unset; display: flex; gap: 22px; flex-wrap: wrap; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--cream); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     EDIT THESE THREE LINES when your links are ready.
+     Leave a value as "" and the site shows a "coming soon" note instead.
+     ============================================================ -->
+<script>
+  const RIOTWOOD = {
+    etsyUrl: "",      // e.g. "https://www.etsy.com/shop/Riotwood"
+    email: "",        // e.g. "orders@riotwood.com"
+    instagramUrl: ""  // e.g. "https://instagram.com/riotwood"
+  };
+</script>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Riotwood home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c3 5 8 7 8 14a8 8 0 0 1-16 0c0-4 2-6 4-8 0 3 1 5 3 5-1-4 0-8 1-11z" fill="#ff5a1f"/><path d="M16 15c1.5 2 3 3 3 6a3 3 0 0 1-6 0c0-2 1.5-3 3-6z" fill="#141110"/></svg>
+      RIOTWOOD
+    </a>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#how">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-ember" href="#order">Custom order</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg class="grain" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="g" x1="0" x2="1">
+        <stop offset="0" stop-color="#c8935a" stop-opacity="0"/>
+        <stop offset=".5" stop-color="#c8935a" stop-opacity=".28"/>
+        <stop offset="1" stop-color="#ff5a1f" stop-opacity=".18"/>
+      </linearGradient>
+    </defs>
+    <g fill="none" stroke="url(#g)" stroke-width="1.2">
+      <path d="M0 60 C200 40 320 110 520 80 S900 30 1200 70"/>
+      <path d="M0 110 C220 90 330 160 540 130 S910 80 1200 120"/>
+      <path d="M0 160 C240 140 350 210 560 180 S920 130 1200 170"/>
+      <path d="M0 215 C260 195 380 280 600 240 C760 210 820 300 920 270 S1100 200 1200 225"/>
+      <path d="M0 270 C260 250 400 340 620 300 C780 270 840 350 940 325 S1100 260 1200 280"/>
+      <ellipse cx="770" cy="275" rx="60" ry="22"/>
+      <ellipse cx="770" cy="275" rx="34" ry="11"/>
+      <path d="M0 330 C260 310 420 390 640 360 S960 320 1200 340"/>
+      <path d="M0 390 C240 370 420 440 660 420 S980 380 1200 400"/>
+      <path d="M0 450 C220 430 420 500 680 480 S1000 440 1200 460"/>
+      <path d="M0 510 C200 490 420 560 700 540 S1020 500 1200 520"/>
+      <path d="M0 570 C200 550 440 610 720 595 S1040 560 1200 580"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <span class="notice"><span class="dot"></span>Holiday orders now open</span>
+    <h1>RIOT<span class="burn">WOOD</span></h1>
+    <p class="tag"><span class="serif">Personal,</span> burned in for good.</p>
+    <p class="lede">Laser-engraved wood and metal gifts, made to order with your names, dates, pets and words. Small batch, made by hand, finished in days.</p>
+    <div class="actions">
+      <a class="btn btn-ember" id="hero-shop" href="#products">Shop the collection</a>
+      <a class="btn btn-ghost" href="#order">Start a custom order</a>
+    </div>
+  </div>
+</header>
+
+<section id="materials">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Two materials, one shop</p>
+        <h2>Wood <span class="serif">and</span> steel.</h2>
+      </div>
+      <p class="lede">Most engravers stop at wood. Riotwood also marks bare stainless steel, brass and silver, so your gift can be warm or built to last a lifetime.</p>
+    </div>
+    <div class="materials">
+      <article class="mat mat-wood">
+        <span class="label">Wood</span>
+        <h3>Warm, natural grain</h3>
+        <p>Basswood, walnut, maple and bamboo, cut and engraved in-house. Every piece has its own grain, so no two are quite the same.</p>
+        <ul><li>Ornaments</li><li>Coasters</li><li>Bookmarks</li><li>Earrings</li></ul>
+        <svg class="bg" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#c8935a" stroke-width="2"><circle cx="50" cy="50" r="8"/><circle cx="50" cy="50" r="18"/><circle cx="50" cy="50" r="29"/><circle cx="50" cy="50" r="41"/></g></svg>
+      </article>
+      <article class="mat mat-metal">
+        <span class="label">Metal</span>
+        <h3>Permanent, sharp detail</h3>
+        <p>Deep, crisp marks on stainless steel, brass and silver. No paint or coating to wear off, so it reads clearly for years.</p>
+        <ul><li>Pet ID tags</li><li>Keychains</li><li>Dog tags</li><li>Wallet cards</li></ul>
+        <svg class="bg" viewBox="0 0 100 100" aria-hidden="true"><g fill="none" stroke="#b9c2c9" stroke-width="2"><rect x="18" y="18" width="64" height="64" rx="10"/><path d="M30 40h40M30 50h40M30 60h26"/></g></svg>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="products" style="padding-top:24px">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">The collection</p>
+        <h2>Made for <span class="serif">someone.</span></h2>
+      </div>
+      <p class="lede">Every item is personalized. Choose a font, add your words, and we engrave it for you.</p>
+    </div>
+
+    <div class="products">
+      <article class="card">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><g fill="none" stroke="#c8935a" stroke-width="2.4" stroke-linecap="round"><path d="M50 8v14"/><circle cx="50" cy="8" r="4"/><circle cx="50" cy="56" r="34"/><path d="M28 50h44M32 62h36" stroke="#ff5a1f"/></g></svg>
+        </div>
+        <span class="pill pill-wood">Wood</span>
+        <div class="meta"><h3>Personalized ornament</h3><span class="price">from $16</span></div>
+        <p>Names, the year, a pet's silhouette or "Baby's first Christmas." Wrapped and ready to hang.</p>
+      </article>
+
+      <article class="card">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><g fill="none" stroke="#b9c2c9" stroke-width="2.4" stroke-linecap="round"><circle cx="50" cy="18" r="6"/><path d="M50 24 L82 44 L72 86 H28 L18 44 Z"/><path d="M36 56h28M40 68h20" stroke="#ff5a1f"/></g></svg>
+        </div>
+        <span class="pill pill-metal">Stainless steel</span>
+        <div class="meta"><h3>Pet ID tag</h3><span class="price">from $15</span></div>
+        <p>Pet's name and your phone number engraved deep into steel. It won't fade, rust or wear off.</p>
+      </article>
+
+      <article class="card">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><g fill="none" stroke="#b9c2c9" stroke-width="2.4" stroke-linecap="round"><circle cx="30" cy="22" r="12"/><path d="M38 30 L46 38"/><rect x="40" y="36" width="44" height="54" rx="10" transform="rotate(-8 62 63)"/><path d="M50 58h26M52 70h18" stroke="#ff5a1f" transform="rotate(-8 62 63)"/></g></svg>
+        </div>
+        <span class="pill pill-metal">Steel or brass</span>
+        <div class="meta"><h3>Keychain &amp; dog tag</h3><span class="price">from $20</span></div>
+        <p>A date, coordinates, a short message, or a note in their handwriting. A gift they carry every day.</p>
+      </article>
+
+      <article class="card">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><g fill="none" stroke="#c8935a" stroke-width="2.4"><circle cx="40" cy="44" r="26"/><circle cx="62" cy="58" r="26" fill="#2a241f"/><path d="M52 58h20" stroke="#ff5a1f" stroke-linecap="round"/><text x="62" y="52" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="14" fill="#ff5a1f" stroke="none">M</text></g></svg>
+        </div>
+        <span class="pill pill-wood">Wood or slate</span>
+        <div class="meta"><h3>Coaster set of 4</h3><span class="price">from $32</span></div>
+        <p>A monogram, family name or wedding date. A housewarming and wedding gift that gets used every day.</p>
+      </article>
+
+      <article class="card">
+        <div class="art" aria-hidden="true">
+          <svg viewBox="0 0 100 100"><g fill="none" stroke="#b9c2c9" stroke-width="2.4" stroke-linecap="round"><rect x="12" y="26" width="76" height="48" rx="6"/><path d="M22 42h40M22 52h30" stroke="#ff5a1f"/><path d="M22 62h16"/></g></svg>
+        </div>
+        <span class="pill pill-metal">Stainless steel</span>
+        <div class="meta"><h3>Wallet card</h3><span class="price">from $22</span></div>
+        <p>A note that slips behind a driver's license and stays there for years. Metal business cards available too.</p>
+      </article>
+
+      <article class="card card-cta">
+        <p class="eyebrow" style="margin:0">Don't see it?</p>
+        <h3>Have an idea? <span class="serif">Let's make it.</span></h3>
+        <p>Small-business logos on keychains, wedding favors, team gifts. Tell us what you're picturing.</p>
+        <a class="btn btn-ember" href="#order" style="align-self:flex-start">Request a custom piece</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="steps-sec" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">How it works</p>
+        <h2>Three steps to <span class="serif">yours.</span></h2>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="n">01</span>
+        <h3>Choose and personalize</h3>
+        <p>Pick your item, a font, and the words, names or dates you want. Have a photo or handwriting? Send it along.</p>
+      </div>
+      <div class="step">
+        <span class="n">02</span>
+        <h3>We engrave it</h3>
+        <p>Your piece is laid out and laser-engraved by hand. We'll message you if anything needs a second look.</p>
+      </div>
+      <div class="step">
+        <span class="n">03</span>
+        <h3>Ships in 3&ndash;5 business days</h3>
+        <p>Packed gift-ready with care, and on its way. Local pickup is available too.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <div class="wrap order">
+    <div>
+      <p class="eyebrow">Custom orders</p>
+      <h2>Tell us what <span class="serif">to burn.</span></h2>
+      <p class="lede" style="margin-top:18px">Bulk orders, logos, wedding favors or something we haven't thought of yet. Fill this in and we'll reply with a quote and a design preview.</p>
+      <ul class="checklist">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,90,31,.15)"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#ff5a1f" stroke-width="2.2" stroke-linecap="round"/></svg>A free design preview before anything is engraved</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,90,31,.15)"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#ff5a1f" stroke-width="2.2" stroke-linecap="round"/></svg>Quantity pricing on orders of 10 or more</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="rgba(255,90,31,.15)"/><path d="M7 12.5l3 3 7-7" fill="none" stroke="#ff5a1f" stroke-width="2.2" stroke-linecap="round"/></svg>Your own artwork, logo or handwriting welcome</li>
+      </ul>
+    </div>
+
+    <form id="order-form" novalidate>
+      <div class="row">
+        <label>Your name<input name="name" autocomplete="name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      </div>
+      <div class="row">
+        <label>What would you like?
+          <select name="item">
+            <option>Ornament</option>
+            <option>Pet ID tag</option>
+            <option>Keychain / dog tag</option>
+            <option>Coaster set</option>
+            <option>Wallet or business card</option>
+            <option>Something custom</option>
+          </select>
+        </label>
+        <label>Quantity<input name="qty" type="number" min="1" value="1"></label>
+      </div>
+      <label>Words to engrave, and any details<textarea name="details" placeholder="Names, dates, font you like, when you need it by..."></textarea></label>
+      <button class="btn btn-ember" type="submit" style="justify-self:start">Send request</button>
+      <p class="form-msg" id="form-msg" role="status"></p>
+      <p class="form-note">This opens an email to Riotwood with your details filled in.</p>
+    </form>
+  </div>
+</section>
+
+<section class="band" id="markets">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Find us in person</p>
+      <h2>Engraved <span class="serif">while you wait.</span></h2>
+      <p class="lede" style="margin-top:18px">Our laser is portable. Catch Riotwood at local craft fairs and holiday markets and watch your gift get personalized right at the table.</p>
+    </div>
+    <div>
+      <p style="margin:0 0 16px">Market dates are posted on Instagram first.</p>
+      <a class="btn btn-ghost" id="ig-link" href="#order">Follow for dates</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="eyebrow">Questions</p>
+    <h2 style="margin-bottom:28px">Good to <span class="serif">know.</span></h2>
+    <div class="faq">
+      <details>
+        <summary>How long does an order take?</summary>
+        <p>Most orders are engraved and shipped within 3&ndash;5 business days. Shipping time depends on the carrier and your location. Large custom orders may take longer; we'll confirm a date with your quote.</p>
+      </details>
+      <details>
+        <summary>Will I see a preview before you engrave?</summary>
+        <p>Custom orders always get a design preview first. For standard items, we engrave exactly what you type, so please double-check spelling and dates.</p>
+      </details>
+      <details>
+        <summary>Can you engrave my logo or handwriting?</summary>
+        <p>Yes. Send a clear photo or file and we'll clean it up for engraving. We can't engrave logos, characters or artwork you don't own the rights to.</p>
+      </details>
+      <details>
+        <summary>Will the engraving on metal wear off?</summary>
+        <p>No. Metal items are marked directly into the steel or brass, with no paint or coating, so the engraving doesn't rub off with everyday wear.</p>
+      </details>
+      <details>
+        <summary>Do you do holiday orders?</summary>
+        <p>Yes. Check our shop for this year's last order date for Christmas delivery. After that, we offer local pickup and printable gift certificates.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c3 5 8 7 8 14a8 8 0 0 1-16 0c0-4 2-6 4-8 0 3 1 5 3 5-1-4 0-8 1-11z" fill="#ff5a1f"/><path d="M16 15c1.5 2 3 3 3 6a3 3 0 0 1-6 0c0-2 1.5-3 3-6z" fill="#141110"/></svg>
+      RIOTWOOD
+    </a>
+    <nav aria-label="Footer">
+      <a href="#products">Products</a>
+      <a href="#order">Custom orders</a>
+      <a href="#faq">FAQ</a>
+      <a id="footer-etsy" href="#products">Etsy shop</a>
+    </nav>
+    <span>&copy; <span id="yr"></span> Riotwood. Made by hand.</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const cfg = window.RIOTWOOD || RIOTWOOD;
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Etsy links: point to the shop when it's set, otherwise say it's coming.
+    const heroShop = document.getElementById('hero-shop');
+    const footerEtsy = document.getElementById('footer-etsy');
+    if (cfg.etsyUrl) {
+      heroShop.href = cfg.etsyUrl; heroShop.textContent = 'Shop on Etsy';
+      heroShop.target = '_blank'; heroShop.rel = 'noopener';
+      footerEtsy.href = cfg.etsyUrl; footerEtsy.target = '_blank'; footerEtsy.rel = 'noopener';
+    } else {
+      footerEtsy.textContent = 'Etsy shop (coming soon)';
+    }
+
+    // Instagram
+    const ig = document.getElementById('ig-link');
+    if (cfg.instagramUrl) {
+      ig.href = cfg.instagramUrl; ig.target = '_blank'; ig.rel = 'noopener';
+      ig.textContent = 'Follow on Instagram';
+    } else {
+      ig.textContent = 'Instagram coming soon';
+    }
+
+    // Custom order form: builds an email with the details filled in.
+    const form = document.getElementById('order-form');
+    const msg = document.getElementById('form-msg');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const d = new FormData(form);
+      const name = (d.get('name') || '').trim();
+      const email = (d.get('email') || '').trim();
+      if (!name || !email) {
+        msg.textContent = 'Please add your name and email so we can reply.';
+        msg.classList.add('show');
+        return;
+      }
+      if (!cfg.email) {
+        msg.textContent = 'Online requests open soon. Until then, message us through our Etsy shop.';
+        msg.classList.add('show');
+        return;
+      }
+      const subject = 'Custom order request: ' + d.get('item') + ' x' + d.get('qty');
+      const body = 'Name: ' + name + '\nEmail: ' + email + '\nItem: ' + d.get('item') +
+                   '\nQuantity: ' + d.get('qty') + '\n\nDetails:\n' + (d.get('details') || '');
+      window.location.href = 'mailto:' + cfg.email + '?subject=' + encodeURIComponent(subject) +
+                             '&body=' + encodeURIComponent(body);
+      msg.textContent = 'Your email app should open with your request filled in. If it doesn\'t, write to ' + cfg.email + '.';
+      msg.classList.add('show');
+    });
+  })();
+</script>
+</body>
+</html>
